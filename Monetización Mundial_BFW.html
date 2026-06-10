@@ -1,0 +1,898 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;500;600&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --verde: #1B4332;
+  --verde-med: #2D6A4F;
+  --verde-light: #52B788;
+  --dorado: #C9A84C;
+  --dorado-light: #E9C46A;
+  --crema: #F5F0E8;
+  --crema-dark: #EAE3D2;
+  --blanco: #FDFAF4;
+}
+
+.carousel-wrap {
+  background: var(--crema);
+  border-radius: 16px;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+  max-width: 520px;
+  margin: 0 auto;
+  box-shadow: 0 8px 32px rgba(27,67,50,0.18);
+}
+
+.slides-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.slide {
+  display: none;
+  min-height: 620px;
+  flex-direction: column;
+  position: relative;
+}
+
+.slide.active {
+  display: flex;
+}
+
+/* ---- SLIDE 1 ---- */
+.s1 {
+  background: var(--verde);
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 48px 36px;
+}
+
+.s1-badge {
+  background: rgba(201,168,76,0.18);
+  border: 1px solid var(--dorado);
+  color: var(--dorado-light);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 20px;
+  margin-bottom: 28px;
+}
+
+.s1-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 100px;
+  font-weight: 900;
+  color: var(--dorado);
+  line-height: 0.85;
+  margin-bottom: 12px;
+}
+
+.s1-main {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--crema);
+  line-height: 1.3;
+  margin-bottom: 8px;
+}
+
+.s1-sub {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--dorado-light);
+  margin-bottom: 36px;
+}
+
+.s1-divider {
+  width: 48px;
+  height: 2px;
+  background: var(--dorado);
+  margin: 0 auto 32px;
+  border-radius: 2px;
+}
+
+.s1-desc {
+  font-size: 13px;
+  color: rgba(245,240,232,0.7);
+  line-height: 1.6;
+  max-width: 300px;
+}
+
+.ball-icon { font-size: 28px; margin-bottom: 20px; }
+
+/* ---- SLIDE 2 ---- */
+.s2 {
+  background: var(--blanco);
+  padding: 40px 32px;
+  justify-content: center;
+}
+
+.tag-verde {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--verde);
+  color: var(--dorado-light);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 20px;
+  margin-bottom: 24px;
+}
+
+.s2-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--verde);
+  line-height: 1.15;
+  margin-bottom: 8px;
+}
+
+.s2-headline em {
+  color: var(--dorado);
+  font-style: italic;
+}
+
+.s2-sub {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 28px;
+  border-left: 3px solid var(--dorado);
+  padding-left: 12px;
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.mini-card {
+  background: var(--crema);
+  border: 1px solid var(--crema-dark);
+  border-radius: 10px;
+  padding: 14px;
+  text-align: center;
+}
+
+.mini-card .icon { font-size: 22px; margin-bottom: 6px; }
+.mini-card .label { font-size: 12px; color: var(--verde); font-weight: 600; }
+.mini-card .desc { font-size: 11px; color: #888; margin-top: 2px; }
+
+/* ---- SLIDE 3 ---- */
+.s3 {
+  background: var(--verde);
+  padding: 40px 32px;
+  justify-content: center;
+}
+
+.s3-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--dorado);
+  margin-bottom: 16px;
+}
+
+.s3-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--crema);
+  line-height: 1.2;
+  margin-bottom: 28px;
+}
+
+.audience-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.aud-pill {
+  background: rgba(201,168,76,0.12);
+  border: 1px solid rgba(201,168,76,0.3);
+  border-radius: 8px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--dorado-light);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.aud-pill i { font-size: 16px; color: var(--dorado); }
+
+.s3-quote {
+  background: rgba(201,168,76,0.1);
+  border-left: 3px solid var(--dorado);
+  padding: 14px 16px;
+  border-radius: 0 8px 8px 0;
+}
+
+.s3-quote p {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--crema);
+  line-height: 1.5;
+}
+
+/* ---- SLIDE 4 ---- */
+.s4 {
+  background: var(--crema);
+  padding: 36px 32px;
+}
+
+.s4-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.s4-sup {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--dorado);
+  margin-bottom: 8px;
+}
+
+.s4-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--verde);
+  line-height: 1.2;
+}
+
+.mindset-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.mindset-left {
+  background: #EEE;
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+  opacity: 0.7;
+}
+
+.mindset-right {
+  background: var(--verde);
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+}
+
+.ms-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.mindset-left .ms-label { color: #888; }
+.mindset-right .ms-label { color: var(--dorado); }
+
+.ms-items { display: flex; flex-direction: column; gap: 5px; }
+.ms-item-l { font-size: 12px; color: #666; }
+.ms-item-r { font-size: 12px; color: var(--crema); font-weight: 500; }
+
+.vs-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--dorado);
+  position: relative;
+}
+
+.truth-box {
+  background: var(--verde);
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+}
+
+.truth-box p {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--crema);
+  line-height: 1.5;
+}
+
+.truth-box strong { color: var(--dorado-light); font-style: normal; }
+
+/* ---- SLIDE 5 ---- */
+.s5 {
+  background: var(--blanco);
+  padding: 36px 30px;
+}
+
+.s5-eyebrow {
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--dorado);
+  margin-bottom: 6px;
+}
+
+.s5-title {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--verde);
+  margin-bottom: 24px;
+}
+
+.ideas-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.idea-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: var(--crema);
+  border-radius: 10px;
+  border-left: 3px solid var(--dorado);
+}
+
+.idea-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--dorado);
+  min-width: 24px;
+}
+
+.idea-text {
+  font-size: 13px;
+  color: var(--verde);
+  font-weight: 500;
+  flex: 1;
+}
+
+.idea-row i {
+  font-size: 18px;
+  color: var(--verde-med);
+}
+
+/* ---- SLIDE 6 ---- */
+.s6 {
+  background: var(--verde);
+  padding: 36px 30px;
+}
+
+.s6-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--crema);
+  margin-bottom: 6px;
+}
+
+.s6-title em { color: var(--dorado); font-style: italic; }
+
+.s6-sub {
+  font-size: 12px;
+  color: rgba(245,240,232,0.6);
+  margin-bottom: 24px;
+}
+
+.biz-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.biz-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: 10px;
+}
+
+.biz-icon-wrap {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: rgba(201,168,76,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.biz-icon-wrap i { font-size: 16px; color: var(--dorado); }
+
+.biz-text { font-size: 12px; color: var(--crema); font-weight: 500; }
+.biz-hint { font-size: 10px; color: rgba(245,240,232,0.5); }
+
+/* ---- SLIDE 7 ---- */
+.s7 {
+  background: var(--crema);
+  padding: 36px 30px;
+}
+
+.s7-header {
+  margin-bottom: 24px;
+}
+
+.s7-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--dorado);
+  margin-bottom: 8px;
+}
+
+.s7-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--verde);
+  line-height: 1.2;
+}
+
+.s7-title em { color: var(--dorado); }
+
+.personal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.per-card {
+  background: var(--blanco);
+  border: 1px solid var(--crema-dark);
+  border-radius: 10px;
+  padding: 14px;
+}
+
+.per-card i {
+  font-size: 20px;
+  color: var(--verde-med);
+  margin-bottom: 6px;
+  display: block;
+}
+
+.per-card .pc-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--verde);
+  margin-bottom: 3px;
+}
+
+.per-card .pc-sub {
+  font-size: 11px;
+  color: #999;
+}
+
+.s7-bottom {
+  margin-top: 16px;
+  background: var(--verde);
+  border-radius: 10px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.s7-bottom i { font-size: 20px; color: var(--dorado); flex-shrink: 0; }
+.s7-bottom p { font-size: 12px; color: var(--crema); line-height: 1.5; }
+.s7-bottom strong { color: var(--dorado-light); }
+
+/* ---- SLIDE 8 ---- */
+.s8 {
+  background: var(--verde);
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 48px 36px;
+}
+
+.s8-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 72px;
+  font-weight: 900;
+  color: var(--dorado);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.s8-num span { font-size: 32px; vertical-align: super; }
+
+.s8-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-style: italic;
+  color: var(--crema);
+  margin-bottom: 24px;
+}
+
+.s8-divider {
+  width: 48px;
+  height: 2px;
+  background: var(--dorado);
+  margin: 0 auto 24px;
+  border-radius: 2px;
+}
+
+.checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
+  margin-bottom: 28px;
+}
+
+.check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 14px;
+  background: rgba(255,255,255,0.07);
+  border-radius: 8px;
+}
+
+.check-item i { font-size: 16px; color: var(--dorado); flex-shrink: 0; margin-top: 1px; }
+.check-item p { font-size: 12px; color: var(--crema); line-height: 1.4; }
+.check-item strong { color: var(--dorado-light); }
+
+.s8-cta {
+  background: var(--dorado);
+  color: var(--verde);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 12px 28px;
+  border-radius: 24px;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ---- NAVIGATION ---- */
+.nav-bar {
+  background: var(--verde);
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(201,168,76,0.3);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.dot.active {
+  background: var(--dorado);
+  width: 18px;
+  border-radius: 3px;
+}
+
+.nav-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(201,168,76,0.4);
+  background: transparent;
+  color: var(--dorado);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: background 0.2s;
+}
+
+.nav-btn:hover { background: rgba(201,168,76,0.15); }
+.nav-btn:disabled { opacity: 0.3; cursor: default; }
+
+.nav-center {
+  font-size: 12px;
+  color: rgba(245,240,232,0.6);
+}
+</style>
+
+<h2 class="sr-only">Carrusel: 15 formas de ganar dinero durante el Mundial</h2>
+
+<div class="carousel-wrap">
+  <div class="slides-container">
+
+    <div class="slide s1 active">
+      <div class="ball-icon">⚽</div>
+      <div class="s1-badge">El Mundial Mueve Millones</div>
+      <div class="s1-num">15</div>
+      <div class="s1-main">formas de ganar dinero</div>
+      <div class="s1-sub">durante el Mundial</div>
+      <div class="s1-divider"></div>
+      <div class="s1-desc">Una guía para personas, freelancers, marcas y negocios que quieren capitalizar el evento más visto del planeta.</div>
+    </div>
+
+    <div class="slide s2">
+      <div class="tag-verde"><i class="ti ti-alert-circle" aria-hidden="true"></i> La gran diferencia</div>
+      <div class="s2-headline">El Mundial <em>mueve</em><br>millones.</div>
+      <div class="s2-sub">La mayoría lo vive desde el consumo. Muy pocos se preguntan cómo capitalizar lo que el mundo entero ya está mirando.</div>
+      <div class="two-col">
+        <div class="mini-card">
+          <div class="icon">🍺</div>
+          <div class="label">Consumo</div>
+          <div class="desc">Gastos emocionales</div>
+        </div>
+        <div class="mini-card">
+          <div class="icon">🛍</div>
+          <div class="label">Compras impulsivas</div>
+          <div class="desc">Sin estrategia</div>
+        </div>
+      </div>
+      <div style="background: var(--verde); border-radius: 10px; padding: 16px; text-align: center;">
+        <p style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 15px; color: var(--crema); line-height: 1.5;">
+          "¿Cómo puedo <strong style="color: var(--dorado-light);">generar dinero</strong><br>alrededor de esto?"
+        </p>
+        <p style="font-size: 11px; color: rgba(245,240,232,0.5); margin-top: 6px;">Esa diferencia lo cambia todo.</p>
+      </div>
+    </div>
+
+    <div class="slide s3">
+      <div class="s3-eyebrow">¿Para quién es esto?</div>
+      <div class="s3-title">Las mejores oportunidades se <em style="color:var(--dorado)">preparan</em> antes del partido.</div>
+      <div class="audience-grid">
+        <div class="aud-pill"><i class="ti ti-user" aria-hidden="true"></i> Personas comunes</div>
+        <div class="aud-pill"><i class="ti ti-building-store" aria-hidden="true"></i> Pequeños negocios</div>
+        <div class="aud-pill"><i class="ti ti-star" aria-hidden="true"></i> Marcas personales</div>
+        <div class="aud-pill"><i class="ti ti-briefcase" aria-hidden="true"></i> Freelancers</div>
+        <div class="aud-pill"><i class="ti ti-rocket" aria-hidden="true"></i> Emprendedores</div>
+        <div class="aud-pill"><i class="ti ti-chart-line" aria-hidden="true"></i> Creadores</div>
+      </div>
+      <div class="s3-quote">
+        <p>Que sepan leer el <strong style="color:var(--dorado-light)">comportamiento del mercado</strong> y actuar antes de que empiece el torneo.</p>
+      </div>
+    </div>
+
+    <div class="slide s4">
+      <div class="s4-header">
+        <div class="s4-sup">El cambio de mentalidad</div>
+        <div class="s4-title">Aquí es donde realmente cambia el juego</div>
+      </div>
+      <div class="mindset-split">
+        <div class="mindset-left">
+          <div class="ms-label">La mayoría</div>
+          <div class="ms-items">
+            <div class="ms-item-l">Entretenimiento</div>
+            <div class="ms-item-l">Consumo pasivo</div>
+            <div class="ms-item-l">Gastos emocionales</div>
+            <div class="ms-item-l">Solo mira el juego</div>
+          </div>
+        </div>
+        <div class="mindset-right">
+          <div class="ms-label">Los estratégicos</div>
+          <div class="ms-items">
+            <div class="ms-item-r">💡 Atención</div>
+            <div class="ms-item-r">👥 Comportamiento</div>
+            <div class="ms-item-r">💵 Dinero moviéndose</div>
+            <div class="ms-item-r">📈 Tendencias</div>
+          </div>
+        </div>
+      </div>
+      <div class="truth-box">
+        <p>La riqueza no siempre aparece <strong>creando algo nuevo</strong>. Muchas veces aparece cuando aprendes a leer lo que el mundo ya está mirando.</p>
+      </div>
+    </div>
+
+    <div class="slide s5">
+      <div class="s5-eyebrow">Para personas</div>
+      <div class="s5-title">Ideas de ingresos extra</div>
+      <div class="ideas-list">
+        <div class="idea-row">
+          <div class="idea-num">01</div>
+          <i class="ti ti-heart" aria-hidden="true"></i>
+          <div class="idea-text">Cuidado de niños durante partidos</div>
+        </div>
+        <div class="idea-row">
+          <div class="idea-num">02</div>
+          <i class="ti ti-scooter" aria-hidden="true"></i>
+          <div class="idea-text">Delivery de snacks y bebidas</div>
+        </div>
+        <div class="idea-row">
+          <div class="idea-num">03</div>
+          <i class="ti ti-confetti" aria-hidden="true"></i>
+          <div class="idea-text">Decoración temática</div>
+        </div>
+        <div class="idea-row">
+          <div class="idea-num">04</div>
+          <i class="ti ti-camera" aria-hidden="true"></i>
+          <div class="idea-text">Fotografía de eventos y watch parties</div>
+        </div>
+        <div class="idea-row">
+          <div class="idea-num">05</div>
+          <i class="ti ti-brand-whatsapp" aria-hidden="true"></i>
+          <div class="idea-text">Community manager para negocios</div>
+        </div>
+        <div class="idea-row">
+          <div class="idea-num">06</div>
+          <i class="ti ti-shirt" aria-hidden="true"></i>
+          <div class="idea-text">Ventas afiliadas (camisetas, streaming)</div>
+        </div>
+        <div class="idea-row">
+          <div class="idea-num">07</div>
+          <i class="ti ti-car" aria-hidden="true"></i>
+          <div class="idea-text">Transporte a eventos</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide s6">
+      <div class="s6-title">Para <em>negocios</em> &amp; marcas</div>
+      <div class="s6-sub">Ideas de ingresos extras en el Mundial</div>
+      <div class="biz-grid">
+        <div class="biz-row">
+          <div class="biz-icon-wrap"><i class="ti ti-gift" aria-hidden="true"></i></div>
+          <div><div class="biz-text">Paquetes temáticos</div><div class="biz-hint">Combos de temporada</div></div>
+        </div>
+        <div class="biz-row">
+          <div class="biz-icon-wrap"><i class="ti ti-users" aria-hidden="true"></i></div>
+          <div><div class="biz-text">Alianzas estratégicas</div><div class="biz-hint">Expande tu alcance</div></div>
+        </div>
+        <div class="biz-row">
+          <div class="biz-icon-wrap"><i class="ti ti-crown" aria-hidden="true"></i></div>
+          <div><div class="biz-text">Experiencias premium</div><div class="biz-hint">Eventos VIP</div></div>
+        </div>
+        <div class="biz-row">
+          <div class="biz-icon-wrap"><i class="ti ti-brand-whatsapp" aria-hidden="true"></i></div>
+          <div><div class="biz-text">Listas VIP WhatsApp</div><div class="biz-hint">Comunidad exclusiva</div></div>
+        </div>
+        <div class="biz-row">
+          <div class="biz-icon-wrap"><i class="ti ti-box" aria-hidden="true"></i></div>
+          <div><div class="biz-text">Productos edición limitada</div><div class="biz-hint">Genera deseo y urgencia</div></div>
+        </div>
+        <div class="biz-row">
+          <div class="biz-icon-wrap"><i class="ti ti-chart-arrows-vertical" aria-hidden="true"></i></div>
+          <div><div class="biz-text">Monetizar tendencias</div><div class="biz-hint">Sin perder tu esencia</div></div>
+        </div>
+        <div class="biz-row">
+          <div class="biz-icon-wrap"><i class="ti ti-id-badge" aria-hidden="true"></i></div>
+          <div><div class="biz-text">Membresías</div><div class="biz-hint">Ingresos recurrentes</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide s7">
+      <div class="s7-header">
+        <div class="s7-eyebrow">Activa tu estrategia</div>
+        <div class="s7-title">Bienvenido al <em>segundo grupo</em></div>
+      </div>
+      <div class="personal-grid">
+        <div class="per-card">
+          <i class="ti ti-bookmark" aria-hidden="true"></i>
+          <div class="pc-label">Guarda esto</div>
+          <div class="pc-sub">Para tenerlo a mano cuando empiece</div>
+        </div>
+        <div class="per-card">
+          <i class="ti ti-calendar" aria-hidden="true"></i>
+          <div class="pc-label">Prepárate ya</div>
+          <div class="pc-sub">Antes de que arranque el torneo</div>
+        </div>
+        <div class="per-card">
+          <i class="ti ti-eye" aria-hidden="true"></i>
+          <div class="pc-label">Lee el mercado</div>
+          <div class="pc-sub">Entiende el comportamiento</div>
+        </div>
+        <div class="per-card">
+          <i class="ti ti-chess" aria-hidden="true"></i>
+          <div class="pc-label">Juégalo estratégico</div>
+          <div class="pc-sub">No solo lo veas, capitalízalo</div>
+        </div>
+      </div>
+      <div class="s7-bottom">
+        <i class="ti ti-info-circle" aria-hidden="true"></i>
+        <p>Algunas personas solo van a <strong>consumir el Mundial.</strong> Otras van a convertir atención y tendencias en <strong>oportunidades reales.</strong></p>
+      </div>
+    </div>
+
+    <div class="slide s8">
+      <div class="s8-num"><span>#</span>15</div>
+      <div class="s8-title">ideas para capitalizar el Mundial</div>
+      <div class="s8-divider"></div>
+      <div class="checklist">
+        <div class="check-item">
+          <i class="ti ti-check" aria-hidden="true"></i>
+          <p><strong>7 ideas para personas</strong> — delivery, fotografía, transporte, cuidado infantil y más</p>
+        </div>
+        <div class="check-item">
+          <i class="ti ti-check" aria-hidden="true"></i>
+          <p><strong>8 ideas para negocios</strong> — membresías, edición limitada, alianzas estratégicas</p>
+        </div>
+        <div class="check-item">
+          <i class="ti ti-check" aria-hidden="true"></i>
+          <p><strong>El mindset correcto</strong> — pasar de consumidor a capitalizador del momento</p>
+        </div>
+      </div>
+      <button class="s8-cta" onclick="sendPrompt('Quiero implementar una de estas 15 ideas para ganar dinero durante el Mundial. ¿Por cuál me recomiendas empezar?')">¿Por cuál empiezo? ↗</button>
+    </div>
+
+  </div>
+
+  <div class="nav-bar">
+    <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)" disabled aria-label="Anterior">
+      <i class="ti ti-chevron-left" aria-hidden="true"></i>
+    </button>
+    <div class="nav-dots" id="dots"></div>
+    <span class="nav-center" id="slideCounter">1 / 8</span>
+    <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)" aria-label="Siguiente">
+      <i class="ti ti-chevron-right" aria-hidden="true"></i>
+    </button>
+  </div>
+</div>
+
+<script>
+let current = 0;
+const slides = document.querySelectorAll('.slide');
+const total = slides.length;
+const dotsContainer = document.getElementById('dots');
+
+for (let i = 0; i < total; i++) {
+  const d = document.createElement('div');
+  d.className = 'dot' + (i === 0 ? ' active' : '');
+  d.onclick = () => goTo(i);
+  dotsContainer.appendChild(d);
+}
+
+function goTo(n) {
+  slides[current].classList.remove('active');
+  dotsContainer.children[current].classList.remove('active');
+  current = n;
+  slides[current].classList.add('active');
+  dotsContainer.children[current].classList.add('active');
+  document.getElementById('slideCounter').textContent = (current + 1) + ' / ' + total;
+  document.getElementById('prevBtn').disabled = current === 0;
+  document.getElementById('nextBtn').disabled = current === total - 1;
+}
+
+function changeSlide(dir) {
+  const next = current + dir;
+  if (next >= 0 && next < total) goTo(next);
+}
+</script>
